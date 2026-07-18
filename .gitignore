@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Secrets / local env
+.env
+.env.local
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db

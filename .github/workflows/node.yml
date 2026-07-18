@@ -1,0 +1,29 @@
+name: node
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Typecheck each Node example
+        run: |
+          set -e
+          found=0
+          for dir in */node; do
+            [ -f "$dir/package.json" ] || continue
+            found=1
+            echo "::group::$dir"
+            (cd "$dir" && npm install && npm run typecheck)
+            echo "::endgroup::"
+          done
+          if [ "$found" -eq 0 ]; then
+            echo "No Node examples found (*/node with a package.json)."
+          fi
