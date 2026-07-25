@@ -11,7 +11,7 @@ Organized by broker, then language. Each example is **self-contained** — copy 
 | Broker | Node | Go | Python |
 |--------|------|----|--------|
 | Alpaca | [`alpaca/node`](alpaca/node) | _planned_ | _planned_ |
-| E*TRADE | _planned_ | — | — |
+| E*TRADE | [`etrade/node`](etrade/node) | — | — |
 | Thinkorswim | _planned_ | — | — |
 
 ## How these are meant to be used
