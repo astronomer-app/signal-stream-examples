@@ -25,7 +25,10 @@ names that match the broker's and language's common spelling.
 - **A dry-run mode.** With no broker keys set, log what *would* happen and send
   no orders, so people can run it before trading.
 - **Paper/sandbox by default.** Default any broker base URL to the paper or
-  sandbox endpoint. Make going live an explicit, documented opt-in.
+  sandbox endpoint. Make going live an explicit, documented opt-in. If the
+  broker has no paper environment at all (Schwab, for one), require a separate
+  opt-in flag on top of the credentials so that credentials alone can never
+  start live trading.
 - **A README** covering setup, the env vars, how to run, and a short "Going to
   production" section listing what's intentionally left out (idempotency, risk
   limits, quote quality, etc.).

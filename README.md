@@ -12,13 +12,18 @@ Organized by broker, then language. Each example is **self-contained** — copy 
 |--------|------|----|--------|
 | Alpaca | [`alpaca/node`](alpaca/node) | _planned_ | _planned_ |
 | E*TRADE | [`etrade/node`](etrade/node) | — | — |
-| Thinkorswim | _planned_ | — | — |
+| Charles Schwab | [`schwab/node`](schwab/node) | — | — |
+| Interactive Brokers | _planned_ | — | — |
+
+Schwab's Trader API is the successor to the retired TD Ameritrade and
+thinkorswim APIs — [`schwab/node`](schwab/node) is the example to start from if
+you are migrating off either.
 
 ## How these are meant to be used
 
 Each example is a standalone project with its own manifest (`package.json`, `go.mod`, …), its own `README`, and its own `.env.example`. They pin the **published** Signal Stream client, so nothing here depends on any Astronomer internal repo — you can lift a single folder straight into your own service.
 
-Every example runs in a **dry-run** mode with no broker keys (signals are logged, no orders sent) so you can watch the flow before trading. Broker examples default to **paper/sandbox** endpoints.
+Every example runs in a **dry-run** mode with no broker keys (signals are logged, no orders sent) so you can watch the flow before trading. Where the broker offers one, examples default to a **paper/sandbox** endpoint. Schwab does not offer one, so that example additionally requires an explicit opt-in flag before it will trade.
 
 > ⚠️ These are examples, not production trading systems. Read each example's "Going to production" notes before pointing one at a live account.
 
