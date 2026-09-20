@@ -13,11 +13,16 @@ Organized by broker, then language. Each example is **self-contained** — copy 
 | Alpaca | [`alpaca/node`](alpaca/node) | _planned_ | _planned_ |
 | E*TRADE | [`etrade/node`](etrade/node) | — | — |
 | Charles Schwab | [`schwab/node`](schwab/node) | — | — |
+| Tradier | [`tradier/node`](tradier/node) | — | — |
 | Interactive Brokers | _planned_ | — | — |
 
 Schwab's Trader API is the successor to the retired TD Ameritrade and
 thinkorswim APIs — [`schwab/node`](schwab/node) is the example to start from if
 you are migrating off either.
+
+Tradier authenticates with a static bearer token and offers a full paper-trading
+sandbox, so [`tradier/node`](tradier/node) has no authorization flow to work
+through — it is the quickest of these to get running end to end.
 
 ## How these are meant to be used
 
