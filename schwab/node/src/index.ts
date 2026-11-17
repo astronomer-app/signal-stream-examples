@@ -109,9 +109,22 @@ server.listen(port, () => {
   }
 });
 
+// The Signal Stream client calls onOpen once and onClose only when the listener
+// stops, so neither notices an outage. Track the polls themselves instead:
+// `connected` in /status means the last poll reached Signal Stream.
 const client = new AstronomerSignals({
   apiKey: signalKey,
   baseUrl: signalBaseUrl,
+  fetch: async (input, init) => {
+    try {
+      const response = await fetch(input, init);
+      stats.connected = response.ok;
+      return response;
+    } catch (error) {
+      stats.connected = false;
+      throw error;
+    }
+  },
 });
 
 const listener = client.signals.listen({
