@@ -1,0 +1,11 @@
+[project]
+name = "astronomer-example-ibkr-python"
+version = "0.0.0"
+description = "Signal Stream example: a Python service that places Interactive Brokers options orders on each signal."
+requires-python = ">=3.10"
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+files = ["."]
+exclude = ["^\\.venv/"]

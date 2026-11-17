@@ -1,0 +1,2 @@
+# Loads .env into the environment. Everything else is the standard library.
+python-dotenv==1.2.3
